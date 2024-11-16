@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+    margin: 0;
+    color: #9775AA;
+    background-color: #260339;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.container>div {
+    width: 100%;
+}
+
+/* Generate Box */
+.generate-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    user-select: none;
+    margin-bottom: 100px;
+}
+
+/* Generate Button */
+.gen-button {
+    cursor: pointer;
+}
+
+/* Text Style */
+.gen-button-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    background-color: #3D1255;
+    transition: all 0.4s ease;
+    animation: gen-button-style-effect 2s ease infinite;
+    box-shadow: 0 25px 40px #00000018;
+}
+
+/* Shadow */
+.gen-button-style-shadow {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 30px;
+    margin: auto;
+    animation: gen-button-style-shadow 2s ease infinite;
+}
+
+/* Effects */
+.gen-button:hover .gen-button-style {
+    background-color: #3d125581;
+}
+
+@keyframes gen-button-style-shadow {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        border-radius: 50%;
+        box-shadow: 0 20px 1px #0000003b;
+        transform: translateY(0);
+    }
+
+    40% {
+        border-radius: 35%;
+        box-shadow: 0 30px 1px #0000003b;
+        transform: translateY(-10px);
+    }
+
+    60% {
+        border-radius: 40%;
+        box-shadow: 0 25px 1px #0000003b;
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes gen-button-style-effect {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-30px);
+    }
+
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* Quote Box */
+.quotes-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.quotes-list {
+    width: 70%;
+}
+
+.quote {
+    display: none;
+    opacity: 0;
+    font-size: 2rem;
+    transition: opacity 2s ease;
+}
+
+.quote span {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.quote.show {
+    display: block;
+    animation: show_effect 1s forwards;
+}
+
+@keyframes show_effect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
