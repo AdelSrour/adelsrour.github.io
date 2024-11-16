@@ -28,6 +28,8 @@ body {
     align-items: center;
     text-align: center;
     user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
     margin: 0 20px 100px;
 }
 
@@ -43,6 +45,7 @@ body {
     justify-content: center;
     max-width: 400px; 
     height: 150px;
+    padding: 10px;
     border-radius: 10px;
     font-size: 1.8rem;
     background-color: #3D1255;
