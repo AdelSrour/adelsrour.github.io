@@ -1,6 +1,6 @@
 //Site Name INPUT
 var siteName = document.getElementById("siteName");
-var siteNameRegex = /^[A-Za-z0-9 ]{3,25}$/;
+var siteNameRegex = /^[a-z0-9 ]{3,25}$/i;
 siteName.addEventListener("focusout", function () {
     validate(siteName, siteNameRegex);
 })
@@ -8,7 +8,7 @@ siteName.addEventListener("focusout", function () {
 //Site URL INPUT
 var siteURL = document.getElementById("siteURL");
 //I wrote this regex (it might have some mistakes)
-var siteURLRegex = /^(https:\/\/|http:\/\/)([A-Za-z0-9]{1,255}[.])?[A-Za-z0-9]{1,253}[.][A-Za-z]{2,63}(((\/)?[A-Za-z0-9\-.]{1,255}?){1,10}(\/)?([.][A-Za-z0-9]{1,15})?((#)[A-Za-z0-9]{1,20})?((\?)[A-Za-z0-9]{1,20})?(((=)[A-Za-z0-9]{1,20})?((&)[A-Za-z0-9]{1,20})?){1,30}?)?$/;
+var siteURLRegex = /^(https:\/\/|http:\/\/)([a-z0-9]{1,255}[.])?[a-z0-9]{1,253}[.][a-z]{2,63}(((\/)?[a-z0-9\-.]{1,255}?){1,10}(\/)?([.][a-z0-9]{1,15})?((#)[a-z0-9]{1,20})?((\?)[a-z0-9]{1,20})?(((=)[a-z0-9]{1,20})?((&)[a-z0-9]{1,20})?){1,30}?)?$/i;
 siteURL.addEventListener("focusout", function () {
     validate(siteURL, siteURLRegex);
 })
@@ -64,9 +64,11 @@ function bookmarkDelete(n) {
 }
 
 //Update localstorage
-function updateLocalStorage() {
+function updateLocalStorage(refresh = 1) {
     localStorage.setItem(localstorageVAR, JSON.stringify(bookmarkList));
-    bookmarkDisplay();
+    if (refresh == 1) {
+        bookmarkDisplay();
+    }
 }
 
 //Display bookmarks
@@ -76,11 +78,11 @@ function bookmarkDisplay() {
     for (var i = 0; i < bookmarkList.length; i++) {
         tableContent += `
             <tr>
-                <td>`+ i + `</td>
-                <td><input type="text" id="bmName`+ i + `" class="form-control stealthInput" value="` + bookmarkList[i]["name"] + `" readonly><div class="invalid-feedback">Site Name must be in English characters (A-Z and can contain Spaces and Numbers only) max 25 characters</div></td>
-                <td><input type="text" id="bmURL`+ i + `" class="form-control stealthInput" value="` + bookmarkList[i]["url"] + `" readonly><div class="invalid-feedback">Site URL is not valid, examples (https://google.com or http://google.com/page1/page.html)</div></td>
-                <td><a class="btn btn-outline-success" href="` + bookmarkList[i]["url"] + `" target="_blank"><i class="fa-solid fa-eye"></i> Open</a></td>
-                <td><button class="btn btn-primary" onclick="bookmarkEdit(`+ i + `,this)"><i class="fa-solid fa-edit"></i> Edit</button> <button class="btn btn-danger" onclick="bookmarkDelete(` + i + `)"><i class="fa-solid fa-trash-alt"></i> Delete</button></td>
+                <td class="d-none d-md-table-cell"><div class="my-2">#`+ i + `</div></td>
+                <td><input type="text" id="bmName`+ i + `" class="form-control stealthInput my-1" value="` + bookmarkList[i]["name"] + `" readonly><div class="invalid-feedback">Site Name must be in English characters (A-Z and can contain Spaces and Numbers only) max 25 characters</div></td>
+                <td><input type="text" id="bmURL`+ i + `" class="form-control stealthInput my-1" value="` + bookmarkList[i]["url"] + `" readonly><div class="invalid-feedback">Site URL is not valid, examples (https://google.com or http://google.com/page1/page.html)</div></td>
+                <td><a class="btn btn-outline-success my-1" href="` + bookmarkList[i]["url"] + `" target="_blank"><i class="fa-solid fa-eye"></i> Open</a></td>
+                <td><button class="btn btn-primary" onclick="bookmarkEdit(`+ i + `,this)"><i class="fa-solid fa-edit"></i> Edit</button> <button class="btn btn-danger my-1" onclick="bookmarkDelete(` + i + `)"><i class="fa-solid fa-trash-alt"></i> Delete</button></td>
             </tr>
         `
     }
@@ -110,8 +112,10 @@ function bookmarkEdit(n, editBtn) {
             url: siteURLEdit.value
         }
 
+        siteNameEdit.classList.remove("is-valid");
+        siteURLEdit.classList.remove("is-valid");
         bookmarkList.splice(n, 1, newData);
-        updateLocalStorage();
+        updateLocalStorage(0);
     } else {
         siteNameEdit.readOnly = false;
         siteURLEdit.readOnly = false;

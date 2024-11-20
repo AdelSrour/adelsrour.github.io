@@ -71,6 +71,7 @@ p {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+    background-color: transparent !important;
     text-align: center;
 }
 
@@ -78,12 +79,14 @@ p {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+    background-color: transparent !important;
 }
 
 .stealthInput:focus {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+    background-color: transparent !important;
 }
 
 .shakeIt {
