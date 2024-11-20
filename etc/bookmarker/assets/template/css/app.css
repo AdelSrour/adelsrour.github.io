@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "PT Sans Caption", sans-serif;
+    background-color: #f7ecde;
+}
+
+.border-dotted {
+    border-bottom: 2px dotted #000;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #d1512d;
+    transition: all 0.4s ease;
+}
+
+.btn-orange:hover,
+.btn-orange:focus {
+    color: #fff;
+    background-color: #ff3700c5;
+}
+
+.bg-linear {
+    display: inline-block;
+    background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+h1 {
+    font-family: "Pacifico", cursive;
+    font-size: 3rem;
+}
+
+h2 {
+    font-family: "Righteous", cursive;
+    font-size: 1.6rem;
+}
+
+p {
+    font-family: "Bree Serif", serif;
+}
+
+.header-text {
+    display: inline-block;
+    position: relative;
+}
+
+.header-text:hover::after {
+    height: 35px;
+}
+
+.header-text::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 20px;
+    bottom: 5px;
+    background-color: #fec260;
+    transition: all 0.3s ease;
+}
+
+
+.stealthInput {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-align: center;
+}
+
+.stealthInput:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.stealthInput:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.shakeIt {
+    animation: shake-effect 0.2s ease-in-out 0s 5;
+}
+
+@keyframes shake-effect {
+    0% {
+        margin-left: 0rem;
+    }
+
+    25% {
+        margin-left: 0.5rem;
+    }
+
+    75% {
+        margin-left: -0.5rem;
+    }
+
+    100% {
+        margin-left: 0rem;
+    }
+}

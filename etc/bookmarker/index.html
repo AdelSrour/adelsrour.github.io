@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMarker</title>
+
+    <!-- Google font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+    <!-- Template -->
+    <link rel="stylesheet" href="assets/template/css/app.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="header-title text-center mt-5">
+            <h1 class="header-text">BookMarker</h1>
+            <div class="border-dotted mt-5 mb-4"></div>
+            <h2 class="bg-linear"><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i
+                    class="fa-solid fa-bookmark"></i></h2>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-4">
+                <div class="bookmark-form">
+                    <form action="#">
+                        <div class="mt-4">
+                            <label for="siteName" class="mb-2 fw-bolder"><i class="fa-solid fa-book-bookmark"></i> Site
+                                Name</label>
+                            <input type="text" id="siteName" class="form-control" placeholder="Bookmark Name"
+                                autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Site Name must be in English characters (A-Z and can contain Spaces and Numbers only)
+                                max 25 characters
+                            </div>
+                            <div class="valid-feedback">
+                                All good!
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label for="siteURL" class="mb-2 fw-bolder"><i class="fa-solid fa-link"></i> Site
+                                URL</label>
+                            <input type="text" id="siteURL" class="form-control" placeholder="Website URL"
+                                autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Site URL is not valid, examples (https://google.com or
+                                http://google.com/page1/page.html)
+                            </div>
+                            <div class="valid-feedback">
+                                All good!
+                            </div>
+                        </div>
+
+                        <button type="submit" id="addButton"
+                            class="btn btn-orange d-block m-auto mt-4 px-5">Submit</button>
+                    </form>
+                </div>
+                <div class="border-dotted mt-4"></div>
+            </div>
+
+            <div class="col-12 mt-2">
+
+                <div class="table-panel text-end mb-2">
+                    <button type="button" id="exportBtn" class="btn btn-outline-success"><i
+                            class="fa-solid fa-upload"></i>
+                        Export</button>
+                    <button type="button" id="importBtn" class="btn btn-outline-primary"><i
+                            class="fa-solid fa-download"></i>
+                        Import</button>
+                    <input type="file" id="importFile" hidden>
+                </div>
+                <table class="table text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="col-3">Index</th>
+                            <th class="col-2">Website Name</th>
+                            <th class="col-3">Website URL</th>
+                            <th class="col-2">Visit</th>
+                            <th class="col-2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookmarkTable">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/template/js/app.js"></script>
+</body>
+
+</html>
