@@ -45,12 +45,12 @@ function bookmarkAdd(e) {
         return;
     }
 
-    bookmarkData = {
+    var bookmarkData = {
         name: siteName.value,
         url: siteURL.value
     };
 
-    bookmarkList.unshift(bookmarkData);
+    bookmarkList.push(bookmarkData);
     updateLocalStorage();
 }
 
