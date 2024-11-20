@@ -50,6 +50,11 @@ function bookmarkAdd(e) {
         url: siteURL.value
     };
 
+    e.target.focus();
+    siteName.value = "";
+    siteURL.value = "";
+    siteName.classList.remove("is-valid");
+    siteURL.classList.remove("is-valid");
     bookmarkList.push(bookmarkData);
     updateLocalStorage();
 }
@@ -78,7 +83,7 @@ function bookmarkDisplay() {
     for (var i = 0; i < bookmarkList.length; i++) {
         tableContent += `
             <tr>
-                <td class="d-none d-md-table-cell"><div class="my-2">#`+ i + `</div></td>
+                <td class="d-none d-md-table-cell"><div class="my-2">`+ (i+1) + `</div></td>
                 <td><input type="text" id="bmName`+ i + `" class="form-control stealthInput my-1" value="` + bookmarkList[i]["name"] + `" readonly><div class="invalid-feedback">Site Name must be in English characters (A-Z and can contain Spaces and Numbers only) max 25 characters</div></td>
                 <td><input type="text" id="bmURL`+ i + `" class="form-control stealthInput my-1" value="` + bookmarkList[i]["url"] + `" readonly><div class="invalid-feedback">Site URL is not valid, examples (https://google.com or http://google.com/page1/page.html)</div></td>
                 <td><a class="btn btn-outline-success my-1" href="` + bookmarkList[i]["url"] + `" target="_blank"><i class="fa-solid fa-eye"></i> Open</a></td>
