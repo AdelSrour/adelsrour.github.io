@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.form-control::placeholder{
+    color: rgb(184, 184, 184);
+}
+
+#registered_msg{
+    display: none;
+}
+
+#login_msg{
+    display: none;
+}

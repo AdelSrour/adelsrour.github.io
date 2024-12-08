@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Login</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+    <!-- Template -->
+    <link rel="stylesheet" href="assets/template/css/app.css">
+</head>
+
+<body class="bg-body-secondary">
+
+
+    <div class="container">
+
+
+        <div class="row vh-100 justify-content-center align-items-center">
+
+            <div class="col-11 col-md-8">
+
+                <div class="px-5 py-4 rounded-3">
+
+
+                    <h1 class="mb-5 text-center">Welcome <span id="client_welcome" class="text-uppercase"></span>
+                    </h1>
+
+
+                    <div class="text-center mb-4">
+                        <button class="btn btn-danger d-block w-100" onclick="smartLogin.logout();">Logout</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <script src="assets/template/js/app.js"></script>
+    <script>
+        smartLogin.is_logged();
+    </script>
+</body>
+
+</html>

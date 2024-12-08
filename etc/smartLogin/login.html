@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Login</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+    <!-- Template -->
+    <link rel="stylesheet" href="assets/template/css/app.css">
+</head>
+
+<body class="bg-body-secondary">
+
+
+    <div class="container">
+
+
+        <div class="row vh-100 justify-content-center align-items-center">
+
+            <div class="col-11 col-md-8">
+
+                <div class="px-5 py-4 rounded-3">
+
+                    <div id="login_msg" class="alert alert-success mb-5" role="alert">
+                        Login Successfully.... Redircting to Panel...
+                    </div>
+
+
+                    <h1 class="mb-5 text-center">Login</h1>
+
+
+                    <form action="#" onsubmit="smartLogin.login(event);">
+                        <div class="mb-4">
+                            <input type="text" class="form-control" placeholder="Enter your email" id="email"
+                                name="email" autocomplete="off">
+                            <div id="email_valid" class="invalid-feedback">
+                                Email does not exist!
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <input type="password" class="form-control" placeholder="Enter your password" id="password"
+                                name="password" autocomplete="off">
+                            <div class="invalid-feedback">
+                                Password is incorrect!
+                            </div>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <button id="login_btn" class="btn btn-primary d-block w-100">Login</button>
+                        </div>
+
+                    </form>
+
+                    <div class="mt-1 text-center">Don't have an account? <a href="register.html">Register</a></div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <script src="assets/template/js/app.js"></script>
+</body>
+
+</html>
